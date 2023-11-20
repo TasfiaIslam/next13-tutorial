@@ -1,6 +1,8 @@
-import Link from "next/link";
 import React from "react";
+import Link from "next/link";
 import CreateTodo from "./createTodo";
+import { FaPlus } from "react-icons/fa";
+import AllTodos from "@/components/allTodos";
 
 async function getTodos() {
   const res = await fetch("https://jsonplaceholder.typicode.com/todos");
@@ -12,17 +14,7 @@ export default async function TodosPage() {
 
   return (
     <div className="">
-      <CreateTodo />
-
-      <div className="flex flex-col gap-y-4">
-        {todos?.slice(190).map((todo: any) => (
-          <Link href={`/todos/${todo.id}`}>
-            <div className="bg-green-100 shadow-sm rounded-[10px] p-4">
-              <p className="font-semibold"> Task: {todo.title}</p>
-            </div>
-          </Link>
-        ))}
-      </div>
+      <AllTodos todos={todos} />
     </div>
   );
 }

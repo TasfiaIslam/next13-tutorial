@@ -20,7 +20,7 @@ const CreateTodo = () => {
   };
 
   return (
-    <div className="mb-4">
+    <div className="my-4">
       <form onSubmit={handleSubmit} className="flex flex-col">
         <label>
           Task:
